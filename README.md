@@ -52,7 +52,51 @@ IV.
 	Create a GUI for language
 
 # Functional Language Specifications
-TODO: CREATE SPECIFICATIONS BEFORE STARTING TO CODE!!!
+This language is white space delimited
+It's functional so it reads like most lisp
+## Tokens
+### Special Characters
+    ()
+    (
+    )
+    =
+    +
+    <
+    >
+    <=
+    >=
+    &&
+    ||
+    !
+    .
+    ,
+    +
+    -
+
+### Names
+    Names must start with either an upper case or lower case
+    letter. They can contain alphanumerics and underscores.
+
+#### Examples
+     alpha
+     Alpha
+     beta\_1
+     DeLtA1A\_2
+
+### Numbers
+    Numbers must start with an alphanumeric. They can contain
+    underscores and dots. Note that underscores are for ease of
+    reading and do not have an affect on the value of the number. Dots
+    Allow the user to input numbers in a decimal system. Numbers can
+    not contain more than one dot. Numbers with a dot will be stored
+    as a float.
+
+#### Examples
+     1
+     2
+     1\_000
+     21\_260
+     21\_260.375
 
 # Infix Language Specifications
 TODO: CREATE SPECIFICATIONS BEFORE STARTING TO CODE!!!
