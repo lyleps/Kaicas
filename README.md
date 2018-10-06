@@ -80,8 +80,8 @@ It's functional so it reads like most lisp
 #### Examples
      alpha
      Alpha
-     beta\_1
-     DeLtA1A\_2
+     beta_1
+     DeLtA1A_2
 
 ### Numbers
     Numbers must start with an alphanumeric. They can contain
@@ -94,9 +94,9 @@ It's functional so it reads like most lisp
 #### Examples
      1
      2
-     1\_000
-     21\_260
-     21\_260.375
+     1_000
+     21_260
+     21_260.375
 
 # Infix Language Specifications
 TODO: CREATE SPECIFICATIONS BEFORE STARTING TO CODE!!!
