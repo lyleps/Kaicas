@@ -1,5 +1,7 @@
-# Kaicas
-Kaicas An Interpreted Computer Algebraic System
+# KAICAS
+Kaicas An Interpreted Computer Algebraic System.
+Or, KAIC
+Kaic's An Interperted CAS
 
 # Project Goal
 To create a functioning CAS (Computer Algebraic System) with a unique
