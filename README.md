@@ -73,16 +73,16 @@ garbage collection.
     -
 
 ### Names
-    Names must start with either an upper case or lower case
-    letter or a sharp. They can contain alphanumerics, underscores
+    Names must start with either an upper case or lower case letter or
+    a sharp. They can contain alphanumerics, underscores 
 
 #### Examples
      alpha
      Alpha
      beta_1
      DeLtA1A_2
-     \#e
-     \#pi
+     #e
+     #pi
 
 ### Numbers
     Numbers must start with an alphanumeric. They can contain
