@@ -61,7 +61,7 @@ It's functional so it reads like most lisp
 - )  
 - ==  
 - <  
-- >  
+- />  
 - <=  
 - \>=  
 - &&  
