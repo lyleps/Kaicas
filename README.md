@@ -59,19 +59,19 @@ It's functional so it reads like most lisp
 - ()  
 - (  
 - )  
-- =  
-- +  
+- ==  
 - <  
 - >  
 - <=  
-- >=  
+- \>=  
 - &&  
 - ||  
 - !  
 - .  
 - ,  
-- +  
-- -  
+- \+  
+- \-  
+- \*  
 
 ### Names
 Names must start with either an upper case or lower case letter or
