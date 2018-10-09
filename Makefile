@@ -1,4 +1,6 @@
 JAVAX = javac
+XFLAGS = -Xlint:deprecation
+
 SRCDIR = src/
 BLDDIR = target/
 DOCDIR = docs/
@@ -9,7 +11,7 @@ DOCFLS = $(addprefix $(DOCDIR), $(addsuffix .html, $(FLS)))
 
 $(CLSFLS): $(BLDDIR)%.class: $(SRCDIR)%.java
 	@echo Building $@ from $<
-	$(JAVAX) -d $(BLDDIR) -sourcepath ./ -Xlint:deprecation $^
+	$(JAVAX) -d $(BLDDIR) -sourcepath ./ $(XFLAGS) $^
 
 
 docs: $(DOCFLS)
