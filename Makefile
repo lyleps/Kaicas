@@ -1,8 +1,21 @@
 JAVAX = javac
 SRCDIR = src/
 BLDDIR = target/
+DOCDIR = docs/
 
 FLS = Lexer
+CLSFLS = $(addprefix $(BLDDIR), $(addsuffix .class, $(FLS)))
+DOCFLS = $(addprefix $(DOCDIR), $(addsuffix .html, $(FLS)))
 
-$(BLDDIR)Lexer.class: $(SRCDIR)Lexer.java
-	$(JAVAX) -sourcepath $(SRCDIR) -d $(BLDDIR) Lexer.java
+$(CLSFLS): $(BLDDIR)%.class: $(SRCDIR)%.java
+	@echo Building $@ from $<
+	$(JAVAX) -d $(BLDDIR) -sourcepath ./ -Xlint:deprecation $^
+
+
+docs: $(DOCFLS)
+
+$(DOCFLS): $(DOCDIR)%.html: $(SRCDIR)%.java
+	javadoc -d $(DOCDIR) $<
+
+clean:
+	rm -rf **/*.class **/*~ $(DOCDIR)*

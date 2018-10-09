@@ -58,34 +58,35 @@ It's functional so it reads like most lisp
 
 ## Tokens
 ### Special Characters
-- ()  
-- (  
-- )  
-- ==  
-- <  
-- />  
-- <=  
-- \>=  
-- &&  
-- ||  
-- !  
-- .  
-- ,  
-- \+  
-- \-  
-- \*  
-
+- ()
+- (
+- )
+- ==
+- <
+- />
+- <=
+- \>=
+- &&
+- ||
+- !
+- .
+- ,
+- \+
+- \-
+- \*
+- ^
+- /
 ### Names
 Names must start with either an upper case or lower case letter or
 a sharp. They can contain alphanumerics, underscores 
 
 #### Examples
-- alpha  
-- Alpha  
-- beta_1  
-- DeLtA1A_2  
-- \#e  
-- \#pi  
+- alpha
+- Alpha
+- beta_1
+- DeLtA1A_2
+- \#e
+- \#pi
 
 ### Numbers
 Numbers must start with an alphanumeric. They can contain
@@ -96,11 +97,11 @@ not contain more than one dot. Numbers with a dot will be stored
 as a float.
 
 #### Examples
-- 1  
-- 2  
-- 1_000  
-- 21_260  
-- 21_260.375  
+- 1
+- 2
+- 1_000
+- 21_260
+- 21_260.375
 
 # Infix Language Specifications
 TODO: CREATE SPECIFICATIONS BEFORE STARTING TO CODE!!!
