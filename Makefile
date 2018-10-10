@@ -8,19 +8,19 @@ DOCDIR = docs/
 FLS = Lexer Parser Runner
 CLSFLS = $(addprefix $(BLDDIR), $(addsuffix .class, $(FLS)))
 DOCFLS = $(addprefix $(DOCDIR), $(addsuffix .html, $(FLS)))
+SRCFLS = $(addprefix $(SRCDIR), $(addsuffix .java, $(FLS)))
 
-project: $(CLSFLS)
+all: $(CLSFLS) $(DOCFLS)
 
-$(CLSFLS): $(BLDDIR)%.class: $(SRCDIR)%.java
-	@echo $(CLSFLS)
-	@echo Building $@ from $<
-	$(JAVAX) -d $(BLDDIR) -sourcepath $(SRCDIR) $(XFLAGS) $^
-
+program: $(CLSFLS)
 
 docs: $(DOCFLS)
 
-$(DOCFLS): $(DOCDIR)%.html: $(SRCDIR)%.java
-	javadoc -d $(DOCDIR) $<
+$(CLSFLS): $(SRCFLS)
+	$(JAVAX) -d $(BLDDIR) $(XFLAGS) $(SRCFLS)
+
+$(DOCFLS): $(SRCFLS)
+	javadoc -d $(DOCDIR) $(SRCFLS)
 
 clean:
 	rm -rf **/*.class **/*~ $(DOCDIR)*

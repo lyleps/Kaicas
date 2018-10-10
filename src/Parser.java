@@ -8,7 +8,13 @@ public class Parser
 	 **/
 	public static int start()
 	{
-		Lexer.setInputStream(System.in);	
+		Lexer.setInputStream(System.in);
+		String token = Lexer.getToken();
+		while(token != null && !token.equals("quit"))
+		{
+			System.out.println(token);
+			token = Lexer.getToken();
+		}
 		return 0;
 	}
 
@@ -22,6 +28,12 @@ public class Parser
 		try
 		{
 			Lexer.setInputStream(new FileInputStream(new File(filepath)));
+			String token = Lexer.getToken();
+			while (token != null)
+			{
+				System.out.println(token);
+				token = Lexer.getToken();
+			}
 			return 0;
 		}
 		catch (FileNotFoundException e)
