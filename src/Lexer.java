@@ -1,12 +1,11 @@
-/**
-   A Lexical analyzer for Kaic Functional
- **/
-
 import java.io.*;
 import java.nio.charset.Charset;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+   A Lexical analyzer for Kaic Functional
+ **/
 public class Lexer
 {
 	/*

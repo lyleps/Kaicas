@@ -1,3 +1,6 @@
+/**
+   The main class to be run as the root of Kaik Functional
+ **/
 public class Runner
 {
 

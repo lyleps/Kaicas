@@ -1,5 +1,8 @@
 import java.io.*;
 
+/**
+   A class to parse the input
+ **/
 public class Parser
 {
 
@@ -17,6 +20,7 @@ public class Parser
 	}
 
 	/**
+	   Sets the input to be a file or System.in
 	   @param filepath a sting representing the filepath to the desired input file. If null input is System.in
 	**/
 	public static void setInput(String filepath)
