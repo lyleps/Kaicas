@@ -8,10 +8,23 @@ public class Runner
 	 **/
 	public static void main(String argv[])
 	{
+		String returned;
 		for(int i = 0; i < argv.length; i++)
 		{
-			Parser.start(argv[i]);
+			Parser.setInput(argv[i]);
+			returned = Parser.expression();
+			while(!(returned.equals("%EOF") || returned.equals("%ERR") || returned.equals("quit")))
+			{
+				System.out.println(":: " + returned);
+				returned = Parser.expression();
+			}
 		}
-		Parser.start();
+		Parser.setInput(null);
+		returned = Parser.expression();
+		while(!(returned.equals("%EOF") || returned.equals("%ERR") || returned.equals("quit")))
+		{
+			System.out.println(":: " + returned);
+			returned = Parser.expression();
+		}
 	}
 }

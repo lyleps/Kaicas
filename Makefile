@@ -20,7 +20,7 @@ $(CLSFLS): $(SRCFLS)
 	$(JAVAX) -d $(BLDDIR) $(XFLAGS) $(SRCFLS)
 
 $(DOCFLS): $(SRCFLS)
-	javadoc -d $(DOCDIR) $(SRCFLS)
+	javadoc -html5 -d $(DOCDIR) $(SRCFLS)
 
 clean:
 	rm -rf **/*.class **/*~ $(DOCDIR)*

@@ -141,7 +141,7 @@ public class Lexer
 			// cur is now a non-whitespace char
 
 			// return null if at the end of file
-			if (cur == (char)-1) return null;
+			if (cur == (char)-1) return "%EOF";
 
 			// takes care of special characters except for '.' because of it's use in numbers
 			char start = cur;
@@ -167,7 +167,7 @@ public class Lexer
 				}
 				else
 				{
-					return null;
+					return "%ERR";
 				}
 			case ')':
 				return ")";
@@ -198,10 +198,10 @@ public class Lexer
 					length++;
 					// numbers cannot have more than one dot
 					if (cur == '.') dot++;
-					if (dot > 1) return null;
+					if (dot > 1) return "%ERR";
 
 					// if cur is an illegal char return null
-					if (!isNumberLegal(cur)) return null;
+					if (!isNumberLegal(cur)) return "%ERR";
 
 					// add cur to the queue as a String
 					// TODO: find out if there is a better way to do this
@@ -238,7 +238,7 @@ public class Lexer
 					queue.offer(new String(curS));
 					cur = (char) in.read();
 					// make sure cur char is legal string char
-					if (!isStringLegal(cur)) return null;
+					if (!isStringLegal(cur)) return "%ERR";
 				}
 				
 				do
@@ -246,7 +246,7 @@ public class Lexer
 					length++;
 
 					// if cur is an illegal char return null
-					if (!isStringLegal(cur)) return null;
+					if (!isStringLegal(cur)) return "%ERR";
 					// add cur to the queue as a String
 					// TODO: find out if there is a better way to do this
 					// ie. maybe use a primitive
@@ -279,7 +279,7 @@ public class Lexer
 				(
 				 "IOException while reading input"
 				 );
-			return null;
+			return "%ERR";
 		}
 	}
 }

@@ -57,7 +57,15 @@ This language is white space delimited
 It's functional so it reads like most lisp
 
 ## Tokens
-### Special Characters
+
+### Hidden Tokens
+These chars are not for the user to input, only for the Lexer to
+return and be used internally.
+- %EOF
+- %ERR
+
+
+### Special Tokens
 - ()
 - (
 - )
@@ -76,7 +84,8 @@ It's functional so it reads like most lisp
 - \*
 - ^
 - /
-### Names
+
+### Strings
 Names must start with either an upper case or lower case letter or
 a sharp. They can contain alphanumerics, underscores 
 
