@@ -7,13 +7,10 @@ public class Cell
 	private Cell down;
 	private Cell over;
 
-	/**
-	   Creates a new Cell with stored data
-	   @param data The data to be stored in the Cell
-	 **/
-	public void Cell(String data)
+
+	public void setData(String data)
 	{
-		this.data = data;
+		this.data = new String(data);
 	}
 
 	/**

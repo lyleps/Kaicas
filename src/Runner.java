@@ -1,3 +1,6 @@
+import java.io.IOException;
+
+
 /**
    The main class to be run as the root of Kaik Functional
  **/
@@ -11,23 +14,30 @@ public class Runner
 	 **/
 	public static void main(String argv[])
 	{
-		String returned;
+		Cell root;
 		for(int i = 0; i < argv.length; i++)
 		{
 			Parser.setInput(argv[i]);
-			returned = Parser.expression();
-			while(!(returned.equals("%EOF") || returned.equals("%ERR") || returned.equals("quit")))
+			root = Parser.expression();
+			while(root.getData() == null ||
+				  !(root.getData().equals("%EOF") || root.getData().equals("%ERR") ||
+					root.getData().equals("quit")))
 			{
-				System.out.println(":: " + returned);
-				returned = Parser.expression();
+				Parser.print(root);
+				root = Parser.expression();
 			}
 		}
 		Parser.setInput(null);
-		returned = Parser.expression();
-		while(!(returned.equals("%EOF") || returned.equals("%ERR") || returned.equals("quit")))
+		System.out.print("KAIC >> ");
+		root = Parser.expression();
+		while(root.getData() == null ||
+			  !(root.getData().equals("%EOF") || root.getData().equals("%ERR") ||
+				root.getData().equals("quit")))
 		{
-			System.out.println(":: " + returned);
-			returned = Parser.expression();
+			System.out.println("");
+			Parser.print(root);
+			System.out.print("KAIC >> ");
+			root = Parser.expression();
 		}
 	}
 }
