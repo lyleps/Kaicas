@@ -7,19 +7,42 @@ public class Cell
 	private Cell down;
 	private Cell over;
 
+	/**
+	   A method to return a cloned cell including cloned children pointed to by the Cell
+	   @return The cloned Cell structure
+	 **/
+	@Override
+	public Cell clone()
+	{
+		Cell newRoot = new Cell();
+		if (data != null)
+			newRoot.data = new String(data);
+		if (down != null)
+			newRoot.down = down.clone();
+		if (over != null)
+			newRoot.over = over.clone();
+		return newRoot;						
+	}
 
+	/**
+	   Sets the data stored in the Cell
+	   @param data A String to be stored in the Cell
+	   @see java.lang.String
+	 **/
 	public void setData(String data)
 	{
-		this.data = new String(data);
+		if (data != null)
+			this.data = new String(data);
 	}
 
 	/**
 	   Gets the data stored in the Cell
-	   @return data the String stored in the cell
+	   @return The String stored in the cell
 	 **/
 	public String getData()
 	{
-		return data;
+		if (data == null) return null;
+		return new String(data);
 	}
 
 	/**

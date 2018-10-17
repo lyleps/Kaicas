@@ -10,7 +10,7 @@ public class Parser
 	
 	/**
 	   Sets the input to be a file or System.in
-	   @param filepath a sting representing the filepath to the desired input file. If null input is System.in
+	   @param filepath A sting representing the filepath to the desired input file. If null input is System.in
 	**/
 	public static void setInput(String filepath)
 	{
@@ -34,7 +34,7 @@ public class Parser
 
 	/**
 	   Evaluates the input
-	   @return The evaluated value of the expression given (eval not yet implemented)
+	   @return The Cell structure of the expression given
 	**/
 	public static Cell expression()
 	{
@@ -45,8 +45,8 @@ public class Parser
 
 
 	/*
-	  a private helper function for expression
-	  @return the evaluated value of the expression given (eval not yet implemented)
+	  A private helper function for expression
+	  @return The Cell structure of the expression given
 	 */
 	private static Cell expr()
 	{
@@ -69,6 +69,7 @@ public class Parser
 			} // end while when found ")" on current depth
 			return root;
 		}
+		else if (token.equals("()")) return null;
 		else // token will not be "(" or ")"
 		{
 			root.setData(token);
@@ -94,12 +95,17 @@ public class Parser
 	private static void pnt(Cell root)
 	{
 		// If the Cell is a leaf return its contents
-		if (root.getDown() == null && root.getOver() == null)
+		if (root == null)
+		{
+			System.out.print("()");
+		}
+		else if (root.getDown() == null && root.getOver() == null)
 		{
 			System.out.print(root.getData());
 		}
 		else
 		{
+			// if not a leaf we want to print open close brackets and contents
 			System.out.print("(");
 			while (root != null)
 			{

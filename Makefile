@@ -5,7 +5,7 @@ SRCDIR = src/
 BLDDIR = target/
 DOCDIR = docs/
 
-FLS = Lexer Parser Runner Cell
+FLS = Lexer Parser Runner Cell Eval
 CLSFLS = $(addprefix $(BLDDIR), $(addsuffix .class, $(FLS)))
 DOCFLS = $(addprefix $(DOCDIR), $(addsuffix .html, $(FLS)))
 SRCFLS = $(addprefix $(SRCDIR), $(addsuffix .java, $(FLS)))

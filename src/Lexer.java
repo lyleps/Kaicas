@@ -32,13 +32,13 @@ public class Lexer
 				(
 				 "Input stream was null, did not change input"
 				 );
-							   
+			
 		}
 	}
 
 
 	/*
-	  a helper function that eats whitespace
+	  A helper function that eats whitespace
 	 */
 	private static void eatWhitespace()
 	{
@@ -61,9 +61,9 @@ public class Lexer
 	
 
 	/*
-	  a helper function that tells if a char is whitespace
-	  @param c the query char
-	  @return a boolean that returns true if c is whitespace false otherwise
+	  A helper function that tells if a char is whitespace
+	  @param c The query char
+	  @return A boolean that returns true if c is whitespace false otherwise
 	 */
 	private static boolean isWhitespace(char c)
 	{
@@ -71,9 +71,9 @@ public class Lexer
 	}
 
 	/*
-	  a helper function that tells if a char signifies the start of a number
-	  @param c the query char
-	  @return a boolean that returns true if c signifies the start of a number false otherwise
+	  A helper function that tells if a char signifies the start of a number
+	  @param c The query char
+	  @return A boolean that returns true if c signifies the start of a number false otherwise
 	 */
 	private static boolean isNumberStart(char c)
 	{
@@ -81,9 +81,9 @@ public class Lexer
 	}
 
 	/*
-	  a helper function that tells if a char is number legal
-	  @param c the query char
-	  @return a boolean that returns true if c is number legal false otherwise
+	  A helper function that tells if a char is number legal
+	  @param c The query char
+	  @return A boolean that returns true if c is number legal false otherwise
 	 */
 	private static boolean isNumberLegal(char c)
 	{
@@ -91,9 +91,9 @@ public class Lexer
 	}
 
 	/*
-	  a helper function that tells if a char signifies the start of a string
-	  @param c the query char
-	  @return a boolean that returns true if c signifies the start of a string false otherwise
+	  A helper function that tells if a char signifies the start of a string
+	  @param c The query char
+	  @return A boolean that returns true if c signifies the start of a string false otherwise
 	*/
 	private static boolean isStringStart(char c)
 	{
@@ -101,9 +101,9 @@ public class Lexer
 	}
 
 	/*
-	  a helper function that tells if a char is string legal
-	  @param c the query char
-	  @return a boolean that returns true if c is string legal false otherwise
+	  A helper function that tells if a char is string legal
+	  @param c The query char
+	  @return A boolean that returns true if c is string legal false otherwise
 	 */
 	private static boolean isStringLegal(char c)
 	{
@@ -111,9 +111,9 @@ public class Lexer
 	}
 	
 	/*
-	  a helper function that tells if a char is a break character
-	  @param c the query char
-	  @return a boolean that returns true if c is a break character false otherwise
+	  A helper function that tells if a char is a break character
+	  @param c The query char
+	  @return A boolean that returns true if c is a break character false otherwise
 	 */
 	private static boolean isBreakChar(char c)
 	{
@@ -122,7 +122,7 @@ public class Lexer
 	
 	/**
 	   Gets the next token
-	   @return the next token as a string. null if EOF or on error
+	   @return The next token as a string. null if EOF or on error
 	 **/
 	public static String getToken()
 	{
@@ -194,7 +194,6 @@ public class Lexer
 				int length = 0;
 				do
 				{
-					length++;
 					// numbers cannot have more than one dot
 					if (cur == '.') dot++;
 					if (dot > 1) return "%ERR";
@@ -203,10 +202,12 @@ public class Lexer
 					if (!isNumberLegal(cur)) return "%ERR";
 
 					// add cur to the queue as a String
-					// TODO: find out if there is a better way to do this
-					// ie. maybe use a primitive
-					char[] curS = {cur};
-					queue.offer(new String(curS));
+					if (cur != '_')
+					{
+						length++;
+						char[] curS = {cur};
+						queue.offer(new String(curS));
+					}
 					cur = (char) in.read();
 				} // is cur not a break char or whitespace
 				while(!(isWhitespace(cur) || isBreakChar(cur)));
