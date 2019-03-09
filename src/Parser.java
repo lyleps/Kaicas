@@ -3,9 +3,17 @@ import java.io.*;
 /**
    A class to parse the input
  **/
-public class Parser
+public final class Parser
 {
 
+	/*
+	  Hides the constructor
+	 */
+	private Parser()
+	{
+		// do notheing
+	}
+	
 	private static String token;
 	
 	/**

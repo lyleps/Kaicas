@@ -6,8 +6,17 @@ import java.util.Queue;
 /**
    A Lexical analyzer for Kaic Functional
  **/
-public class Lexer
+public final class Lexer
 {
+
+	/*
+	  Hides the Constructor
+	 */
+	private Lexer()
+	{
+		// do nothing
+	}
+	
 	/*
 	  The input to be read as a stream of chars.
 	  This can either be from a file or from the system input stream.

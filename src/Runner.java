@@ -3,9 +3,16 @@ import java.io.IOException;
 /**
    The main class to be run as the root of Kaik Functional
  **/
-public class Runner
+public final class Runner
 {
-
+	/*
+	  Hides the constructor
+	 */
+	private Runner()
+	{
+		// do nothing
+	}
+	
 	/**
 	   The root of Kaik Functional program
 	   use this class to Start Kaik
@@ -35,6 +42,8 @@ public class Runner
 		{
 			System.out.println("");
 			Parser.print(Eval.evaluate(root));
+			System.out.println("");
+			GAL.print();
 			System.out.print("KAIC >> ");
 			root = Parser.expression();
 		}
